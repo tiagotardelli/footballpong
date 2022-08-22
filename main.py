@@ -2,8 +2,10 @@ import pygame as pg
 
 pg.init()
 
-windows = pg.display.set_mode([1280,720])
+window = pg.display.set_mode([1280,720])
 title = pg.display.set_caption("Football Pong")
+field = pg.image.load("assets/field.png")
+window.blit(field,(0,0))
 
 loop = True
 while loop:
