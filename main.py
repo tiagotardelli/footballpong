@@ -1,22 +1,32 @@
-from tkinter.tix import Balloon
 import pygame as pg
 
 pg.init()
 
-window = pg.display.set_mode([1280,720])
+window = pg.display.set_mode([1280, 720])
 title = pg.display.set_caption("Football Pong")
 
 field = pg.image.load("assets/field.png")
-window.blit(field,(0,0))
 
 player1 = pg.image.load("assets/player1.png")
-window.blit(player1, (50,310))
 
 player2 = pg.image.load("assets/player2.png")
-window.blit(player2, (1150,310))
 
 ball = pg.image.load("assets/ball.png")
-window.blit(ball, (617,337))
+ball_xy = {"x": 617, "y": 337}
+
+
+def move_ball(none):
+    global ball_xy
+
+    ball_xy["x"] += 1
+
+
+def draw():
+    window.blit(field, (0, 0))
+    window.blit(player1, (50, 310))
+    window.blit(player2, (1150, 310))
+    window.blit(ball, (ball_xy["x"], ball_xy["y"]))
+
 
 loop = True
 while loop:
@@ -25,4 +35,6 @@ while loop:
         if events.type == pg.QUIT:
             loop = False
 
+    draw()
+    move_ball()
     pg.display.update()
