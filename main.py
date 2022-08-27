@@ -33,6 +33,11 @@ def move_player():
     else:
         player1_y += 0
 
+    if player1_y <= 0:
+        player1_y = 0
+    elif player1_y >= 575:
+        player1_y = 575
+
 
 def move_ball():
     global ball_x
