@@ -19,6 +19,7 @@ ball = pg.image.load("assets/ball.png")
 ball_x = 617
 ball_y = 337
 
+
 def move_player():
     global player1_y
 
@@ -27,11 +28,11 @@ def move_player():
     else:
         player1_y += 0
 
-    
     if player1_movedown:
         player1_y += 5
     else:
         player1_y += 0
+
 
 def move_ball():
     global ball_x
@@ -43,7 +44,7 @@ def draw():
     window.blit(field, (0, 0))
     window.blit(player1, (50, player1_y))
     window.blit(player2, (1150, 310))
-    window.blit(ball,(ball_x, ball_y))
+    window.blit(ball, (ball_x, ball_y))
 
 
 loop = True
